@@ -1,20 +1,12 @@
-import {
-    resStatuses
-} from './constants.js';
+import { resStatuses } from './constants.js';
 
-export const sendResponse = (res, payload) => {
+const sendResponse = (res, payload) => {
     if (typeof payload === 'string') {
-        res.status(resStatuses[payload] || 200).json({
-            msg: payload
-        });
+        res.status(resStatuses[payload] || 200).json({ msg: payload });
     } else {
-        const {
-            result,
-            ...data
-        } = payload;
-        res.status(resStatuses[result]).json({
-            msg: result,
-            ...data
-        });
+        const { result, ...data } = payload;
+        res.status(resStatuses[result]).json({ msg: result, ...data });
     }
 }
+
+export default sendResponse;

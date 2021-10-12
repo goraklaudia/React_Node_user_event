@@ -13,16 +13,18 @@ const applyMiddleware = (app) => {
     app.use(express.urlencoded({
         extended: true
     }));
+    app.use(express.json({limit: '10mb', extended: true}));
 }
 
 const prepareServer = () => {
     const app = express();
     const httpServer = http.createServer(app);
     const router = express.Router();
-
     applyMiddleware(app);
 
-    prepareRoutes(router);
+    const database = prepareDatabase();
+
+    prepareRoutes(router, database);
     app.use('/api', router);
 
     return httpServer;
