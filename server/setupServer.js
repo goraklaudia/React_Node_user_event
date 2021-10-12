@@ -8,7 +8,7 @@ const logRequest = (req, res, next) => {
     next();
 }
 
-const applyMiddleware = (app) => {
+const applyMiddleware = async (app) => {
     app.use(logRequest);
     app.use(express.urlencoded({
         extended: true
@@ -16,13 +16,13 @@ const applyMiddleware = (app) => {
     app.use(express.json({limit: '10mb', extended: true}));
 }
 
-const prepareServer = () => {
+const prepareServer = async () => {
     const app = express();
     const httpServer = http.createServer(app);
     const router = express.Router();
     applyMiddleware(app);
 
-    const database = prepareDatabase();
+    const database = await prepareDatabase();
 
     prepareRoutes(router, database);
     app.use('/api', router);
@@ -30,9 +30,9 @@ const prepareServer = () => {
     return httpServer;
 }
 
-export const startServer = () => {
-    const server = prepareServer();
-    server.listen(4000).on('error', (err) => {
+export const startServer = async () => {
+    const server = await prepareServer();
+    return server.listen(4000).on('error', (err) => {
         console.log(`Server error: ${err}`);
     })
 }

@@ -1,6 +1,6 @@
 import sqlite3 from 'sqlite3';
 
-const prepareDatabase = () => {
+const prepareDatabase = async () => {
     const pathToDatabase = './database.db';
     let database = new sqlite3.Database(pathToDatabase, (err) => {
         if (err) {

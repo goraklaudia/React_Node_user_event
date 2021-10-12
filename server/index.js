@@ -1,6 +1,6 @@
 import { startServer } from './setupServer.js';
 
-(function () {
-    startServer();
+(async function () {
+    await startServer();
     console.log('Server is running');
 })();
