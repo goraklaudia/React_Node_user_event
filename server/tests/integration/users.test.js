@@ -1,7 +1,7 @@
 import request from 'supertest';
-import { constants } from '../../../constants/constants.js';
-import { startServer } from '../../../setupServer.js';
-import { userMock as user } from '../../mocks/user.js';
+import { constants } from '../../constants/constants.js';
+import { startServer } from '../../setupServer.js';
+import { userMock as user } from '../mocks/user.js';
 
 describe('POST api/user - adding user', () => {
     let server;
