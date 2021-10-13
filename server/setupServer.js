@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import prepareRoutes from './routes.js';
 import prepareDatabase from './prepareDatabase.js';
+import cors from 'cors';
 
 const logRequest = (req, res, next) => {
     console.info(`${req.method} ${req.originalUrl}`);
@@ -14,6 +15,7 @@ const applyMiddleware = async (app) => {
         extended: true
     }));
     app.use(express.json({limit: '10mb', extended: true}));
+    app.use(cors());
 }
 
 const prepareServer = async () => {

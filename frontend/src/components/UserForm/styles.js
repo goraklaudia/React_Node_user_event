@@ -1,22 +1,27 @@
 import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     mainBox: {
-        margin: '10% 20%',
-        width: '60%',
+        margin: '10% 30%',
+        padding: '2%',
+        width: '36%',
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        border: '1px solid gray',
         borderRadius: '5px',
         textAlign: 'center',
-        // [theme.breakpoints.down('xs')]: {
-        //     width: '90%',
-        //     margin: '10% 5%',
-        // }
+        boxShadow: '0 0 4px 3px #dcdcdc',
     },
-    boxField: {
-        margin: '5% 5%',
-        width: '96%',
+    '@media (max-width: 1200px)': {
+        mainBox: {
+            width: '66%',
+            margin: '20% 15%',
+        },
+    },
+    '@media (max-width: 700px)': {
+        mainBox: {
+            width: '90%',
+            margin: '25% 3%',
+        },
     }
 });
-export default useStyles;
