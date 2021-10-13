@@ -3,7 +3,6 @@ Simple app with frontend application implemented in React connected with API wri
 
 # Run applications
 ## Server application - steps to start
----
 
 1. Go to the *server* folder
 
@@ -18,7 +17,6 @@ Simple app with frontend application implemented in React connected with API wri
     ``` npm start ```
 
 ## Frontent application - steps to start
----
 
 1. Go to the *frontend* folder
 
@@ -33,13 +31,11 @@ Simple app with frontend application implemented in React connected with API wri
     ``` npm start ```
 
 ## Database - steps to start
----
 
 You don't need to run anything to make it work. The database instance was created at the main level in the server application.
 
 # Run tests
 ## Server application 
----
 
 1. Go to the *server* folder
 
@@ -51,7 +47,6 @@ You don't need to run anything to make it work. The database instance was create
 
 
 ## Frontent application 
----
 
 1. Go to the *frontend* folder
 
