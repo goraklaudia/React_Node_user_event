@@ -5,6 +5,7 @@ import { Field } from "./Field";
 import { validateDate, validateEmail } from "../../utils/validations";
 import { fetchHandler } from '../../utils/fetchHandler';
 import Alert from '../Alert/Alert';
+import { messages } from "../../utils/constants";
 
 const UserForm = () => {
     const classes = useStyles();
@@ -92,11 +93,18 @@ const UserForm = () => {
         return allFieldsValid;
     };
 
+    const clearFields = () => {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setDate('');
+    }
+    
     const handleSave = () => {
         const validField = validateFields();
 
         if (validField) {
-            let options = {
+            const options = {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -109,7 +117,7 @@ const UserForm = () => {
                     date
                 })
             }
-            fetchHandler('/user', options, setAlert);
+            fetchHandler('/user', options, setAlert, clearFields);
         }
     };
 

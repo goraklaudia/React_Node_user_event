@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "start": "node index.js",
-    "watch": "nodemon index.js"
+    "start": "nodemon index.js",
+    "watch": "node index.js"
   },
   "author": "Klaudia Gora",
   "license": "ISC",

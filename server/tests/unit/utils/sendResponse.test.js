@@ -13,12 +13,6 @@ describe('Send response', () => {
         res.json = jest.fn().mockReturnValue(res);
     });
 
-    it('should return status 200 when constant msg is SUCCESS', () => {
-        sendResponse(res, constants.SUCCESS);
-        expect(res.status).toHaveBeenCalledWith(200);
-        expect(res.json).toHaveBeenCalled();
-    });
-
     it('should return status 500 when constant msg is ERROR', () => {
         sendResponse(res, constants.ERROR);
         expect(res.status).toHaveBeenCalledWith(500);
